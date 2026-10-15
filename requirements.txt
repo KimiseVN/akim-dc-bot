@@ -1,0 +1,17 @@
+discord.py==2.4.0
+SQLAlchemy[asyncio]>=2.0.40,<2.1
+asyncpg==0.30.0
+python-dotenv==1.0.1
+aiosqlite==0.20.0
+audioop-lts==0.2.1; python_version >= "3.13"
+# Excel import for /vuatiengviet word import
+openpyxl==3.1.5
+# GvG view_mode=4 grid renderer (Pillow composites per-team avatar grids
+# from the DB-cached faces; without this dep, view_mode=4 falls back to
+# view_mode=1 at render time — see src/cogs/gvg.py:_HAS_PIL).
+Pillow>=10.0,<12
+# akim-desk-pet API (loaded only when DESKTOP_TOKEN_SECRET is set)
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic==2.10.4
+PyJWT==2.10.1

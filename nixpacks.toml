@@ -1,0 +1,8 @@
+# Nixpacks build config for Railway. The GvG view_mode=4 renderer
+# (Pillow avatar grid) needs a TrueType font with Vietnamese support —
+# the base Python image ships no fonts, so PIL falls back to its
+# ASCII-only bitmap font. We install DejaVu (broad Latin+diacritics
+# coverage) and Noto (comprehensive Vietnamese support) so the font
+# chain in src/cogs/gvg.py picks one up automatically.
+[phases.setup]
+aptPkgs = ["fonts-dejavu-core", "fonts-noto-core"]

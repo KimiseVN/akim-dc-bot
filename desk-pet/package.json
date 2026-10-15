@@ -1,0 +1,49 @@
+{
+  "name": "akim-desk-pet",
+  "version": "0.1.0",
+  "description": "Desktop pet client for the akim-dc-bot Pet system.",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build:web": "vite build",
+    "build:electron": "tsc -p electron/tsconfig.json && node scripts/post-build.cjs",
+    "build": "npm run build:web && npm run build:electron",
+    "start": "npm run build && electron .",
+    "start:dev": "concurrently -k \"npm:dev\" \"wait-on tcp:5173 && npm run build:electron && cross-env DESK_PET_DEV=1 electron .\"",
+    "package": "npm run build && electron-builder",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p electron/tsconfig.json --noEmit"
+  },
+  "private": true,
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "com.akim.desk-pet",
+    "productName": "Akim Desk Pet",
+    "files": [
+      "dist-electron/**",
+      "dist/**"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "directories": {
+      "output": "release"
+    }
+  }
+}

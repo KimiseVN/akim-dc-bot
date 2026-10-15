@@ -1,0 +1,12 @@
+{
+  "id": "fallback",
+  "displayName": "Mystery Pet",
+  "description": "Shown when the active species has no desktop_asset_id mapped or its asset folder is missing.",
+  "species": "mystery",
+  "frameWidth": 192,
+  "frameHeight": 156,
+  "columns": 8,
+  "rows": 12,
+  "defaultScale": 1,
+  "animations": {}
+}

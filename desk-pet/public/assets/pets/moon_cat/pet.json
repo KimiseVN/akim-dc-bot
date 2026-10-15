@@ -1,0 +1,46 @@
+{
+  "id": "moon_cat",
+  "displayName": "Moon Cat",
+  "description": "Mèo Mặt Trăng",
+  "species": "cat",
+  "stateSheet": {
+    "pathTemplate": "{stage}-stage/{state}.webp",
+    "cols": 4,
+    "rows": 3,
+    "frames": 12,
+    "displayHeight": 260,
+    "_note": "Per-stage per-state grid sheets (4x3, 362x362, transparent). stage ∈ baby|teen|adult|mystic.",
+    "states": {
+      "idle":  { "fps": 8,  "loop": true },
+      "move":  { "fps": 12, "loop": true },
+      "sleep": { "fps": 6,  "loop": true },
+      "eat":   { "fps": 10, "loop": false },
+      "drink": { "fps": 10, "loop": false },
+      "play":  { "fps": 12, "loop": false },
+      "clean": { "fps": 10, "loop": false },
+      "train": { "fps": 12, "loop": false }
+    }
+  },
+  "spritesheetPath": "spritesheet.webp",
+  "frameWidth": 192,
+  "frameHeight": 208,
+  "columns": 8,
+  "rows": 9,
+  "defaultScale": 1,
+  "_layout": "Fallback OpenPets 8x9 (192x208) — used only if a state sheet is missing.",
+  "animations": {
+    "idle":      { "row": 0, "frames": 6, "durationMs": 5500, "iterations": "infinite" },
+    "walkRight": { "row": 1, "frames": 8, "durationMs": 1060, "iterations": "infinite" },
+    "walkLeft":  { "row": 2, "frames": 8, "durationMs": 1060, "iterations": "infinite" },
+    "petting":   { "row": 3, "frames": 4, "durationMs": 700,  "iterations": 2 },
+    "happy":     { "row": 4, "frames": 5, "durationMs": 840,  "iterations": 2 },
+    "jump":      { "row": 4, "frames": 5, "durationMs": 840,  "iterations": 2 },
+    "eat":       { "row": 5, "frames": 8, "durationMs": 1220, "iterations": 1 },
+    "drink":     { "row": 5, "frames": 8, "durationMs": 1220, "iterations": 1 },
+    "play":      { "row": 5, "frames": 8, "durationMs": 1100, "iterations": 2 },
+    "sad":       { "row": 5, "frames": 8, "durationMs": 1220, "iterations": 2 },
+    "sleep":     { "row": 6, "frames": 6, "durationMs": 1010, "iterations": "infinite" },
+    "train":     { "row": 8, "frames": 6, "durationMs": 1030, "iterations": 2 },
+    "sick":      { "row": 8, "frames": 6, "durationMs": 1030, "iterations": "infinite" }
+  }
+}

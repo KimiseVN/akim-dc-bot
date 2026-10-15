@@ -1,0 +1,27 @@
+{
+  "id": "fallback",
+  "displayName": "Mystery Pet",
+  "description": "Fallback pet shown when the active species has no desktop_asset_id mapped.",
+  "species": "mystery",
+  "spritesheetPath": "spritesheet.webp",
+  "thumbnailPath": null,
+  "frameWidth": 192,
+  "frameHeight": 208,
+  "columns": 8,
+  "rows": 12,
+  "defaultScale": 1,
+  "animations": {
+    "idle": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": "infinite" },
+    "walkRight": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": "infinite" },
+    "walkLeft": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": "infinite" },
+    "happy": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": 2 },
+    "sad": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": 2 },
+    "eat": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": 1 },
+    "drink": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": 1 },
+    "play": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": 2 },
+    "sleep": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": "infinite" },
+    "petting": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": 2 },
+    "jump": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": 2 },
+    "sick": { "row": 0, "frames": 1, "durationMs": 1000, "iterations": "infinite" }
+  }
+}
