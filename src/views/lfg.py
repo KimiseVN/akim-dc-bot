@@ -231,13 +231,33 @@ async def build_gw_embed(
         else:
             desc_parts.append(f"{_t(lang, 'start_time')}: **{party.start_time}**")
 
-    bar_line = (
-        f"`{bar}` **{pct}%** • {filled}/{limit} {main_label}"
-        + (f" • {reserve_label} {len(reserve_members)}" if reserve_members else "")
-        + (f" • 🟢 {remaining}" if party.is_open and remaining > 0 else "")
-        + (f" • **{full_label}**" if party.is_open and remaining == 0 else "")
+    sat_count = sum(1 for m in main_members if m.day in ("sat", "both"))
+    sun_count = sum(1 for m in main_members if m.day in ("sun", "both"))
+    sat_label = _t(lang, "day_sat")
+    sun_label = _t(lang, "day_sun")
+
+    def _day_bar(count: int) -> str:
+        p = int((count / limit) * 100) if limit else 0
+        b = int(round(p / 10))
+        return "`" + "█" * b + "░" * (10 - b) + "`"
+
+    sat_remaining = max(0, limit - sat_count)
+    sun_remaining = max(0, limit - sun_count)
+
+    sat_bar_line = (
+        f"{_day_bar(sat_count)} 📅 {sat_label}: **{sat_count}/{limit}**"
+        + (f" • 🟢 {sat_remaining}" if party.is_open and sat_remaining > 0 else "")
+        + (f" • **{full_label}**" if party.is_open and sat_remaining == 0 else "")
     )
-    desc_parts.append(bar_line)
+    sun_bar_line = (
+        f"{_day_bar(sun_count)} 📅 {sun_label}: **{sun_count}/{limit}**"
+        + (f" • 🟢 {sun_remaining}" if party.is_open and sun_remaining > 0 else "")
+        + (f" • **{full_label}**" if party.is_open and sun_remaining == 0 else "")
+    )
+    desc_parts.append(sat_bar_line)
+    desc_parts.append(sun_bar_line)
+    if reserve_members:
+        desc_parts.append(f"{reserve_label}: {len(reserve_members)}")
     embed.description = "\n".join(desc_parts)
 
     # Day columns — Discord renders two consecutive inline fields side-by-side
